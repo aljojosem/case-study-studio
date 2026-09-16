@@ -1,0 +1,226 @@
+[
+  {
+    "id": "cs-nlg-enquiry",
+    "title": "Faster life-insurance enquiry handoff",
+    "slug": "nlg-enquiry-handoff",
+    "client": "National Life Group",
+    "industry": "Insurance",
+    "challenge": "New contracting enquiries sat in email and spreadsheets. Delivery and ops could not see who owned a request or whether it was waiting on the carrier or on 2Base.",
+    "solution": "2Base shipped a structured enquiry queue in CHIMS: intake fields, owner, status, and a clear waiting-on-us vs waiting-on-client split, with a documented API contract for the carrier token flow.",
+    "results": [
+      {
+        "label": "Time to first owner",
+        "value": "−60%"
+      },
+      {
+        "label": "Dropped enquiries / quarter",
+        "value": "0"
+      },
+      {
+        "label": "Ops status chases / week",
+        "value": "−8 hrs"
+      }
+    ],
+    "quote": {
+      "text": "We stopped asking Slack who had the last NLG pack. The queue is the source of truth.",
+      "by": "Delivery lead, CHIMS"
+    },
+    "stack": [
+      "Laravel",
+      "MySQL",
+      "Auth0",
+      "AWS"
+    ],
+    "seoKeywords": [
+      "life insurance enquiry",
+      "National Life Group case study",
+      "CHIMS",
+      "insurance contracting workflow",
+      "carrier token API"
+    ],
+    "status": "published",
+    "publishedAt": "2026-06-12T09:00:00.000Z",
+    "updatedAt": "2026-06-12T09:00:00.000Z"
+  },
+  {
+    "id": "cs-claims-portal",
+    "title": "Claims portal the field team actually opens",
+    "slug": "field-claims-portal",
+    "client": "Regional health network",
+    "industry": "Healthcare",
+    "challenge": "Clinicians photographed forms and emailed them. Coding errors and missing fields came back days later.",
+    "solution": "A mobile-first intake with required fields, draft save, and a review queue for coding. Same design language on phone and desktop so training stayed short.",
+    "results": [
+      {
+        "label": "Incomplete submissions",
+        "value": "−45%"
+      },
+      {
+        "label": "Average coding turnaround",
+        "value": "2.1 days"
+      }
+    ],
+    "quote": {
+      "text": "If it works on a phone in a corridor, it ships. That was the brief.",
+      "by": "Product owner, client side"
+    },
+    "stack": [
+      "Next.js",
+      "React",
+      "AWS"
+    ],
+    "seoKeywords": [
+      "healthcare claims portal",
+      "mobile claims intake",
+      "clinical coding workflow",
+      "field team case study"
+    ],
+    "status": "published",
+    "publishedAt": "2026-03-04T09:00:00.000Z",
+    "updatedAt": "2026-03-04T09:00:00.000Z"
+  },
+  {
+    "id": "cs-fintech-onboarding",
+    "title": "KYC onboarding without the PDF pile",
+    "slug": "fintech-kyc-onboarding",
+    "client": "Northshore Payments",
+    "industry": "FinTech",
+    "challenge": "Compliance still collected KYC packs as email attachments. Renewal season created a two-week backlog.",
+    "solution": "Checklist-driven upload, status for the merchant, and an internal review board. Drafts persist so a relationship manager can leave and return.",
+    "results": [
+      {
+        "label": "Renewal cycle time",
+        "value": "−40%"
+      },
+      {
+        "label": "Manual chase emails",
+        "value": "−70%"
+      }
+    ],
+    "stack": [
+      "Next.js",
+      "Laravel",
+      "MySQL",
+      "React"
+    ],
+    "seoKeywords": [
+      "fintech KYC onboarding",
+      "merchant compliance portal",
+      "KYC document upload",
+      "Northshore Payments"
+    ],
+    "status": "review",
+    "updatedAt": "2026-09-16T05:26:39.322Z"
+  },
+  {
+    "id": "cs-retail-stock",
+    "title": "Store stock visibility for a 40-site retailer",
+    "slug": "retail-stock-visibility",
+    "client": "Harbour & Co",
+    "industry": "Retail",
+    "challenge": "Each store emailed a spreadsheet on Monday. Head office rebuilt a national view by Wednesday.",
+    "solution": "One intake form per store, a live dashboard for ops, and a published weekly snapshot leadership can open without asking for a deck.",
+    "results": [
+      {
+        "label": "National view ready by",
+        "value": "Monday 6pm"
+      },
+      {
+        "label": "Head-office compile time",
+        "value": "−6 hrs/week"
+      }
+    ],
+    "stack": [
+      "Next.js",
+      "MySQL",
+      "AWS"
+    ],
+    "seoKeywords": [
+      "retail stock visibility",
+      "multi-store inventory dashboard",
+      "Harbour & Co",
+      "head office stock reporting"
+    ],
+    "status": "published",
+    "publishedAt": "2026-09-16T05:45:19.785Z",
+    "updatedAt": "2026-09-16T05:45:19.785Z"
+  },
+  {
+    "id": "cs-public-licensing",
+    "title": "Licensing requests that no longer sit in a shared inbox",
+    "slug": "public-licensing-queue",
+    "client": "City of Riverside",
+    "industry": "Public sector",
+    "challenge": "Business licence renewals arrived as PDFs and voicemails. Officers could not see who owned a request or which ones were waiting on the applicant.",
+    "solution": "2Base built a public intake form and an internal queue with owner, due date, and waiting-on-us vs waiting-on-applicant. Status is visible to the applicant so they stop calling the switchboard.",
+    "results": [
+      {
+        "label": "Average decision time",
+        "value": "−9 days"
+      },
+      {
+        "label": "Switchboard chases / week",
+        "value": "−12 hrs"
+      },
+      {
+        "label": "Requests with a named owner",
+        "value": "100%"
+      }
+    ],
+    "quote": {
+      "text": "We can tell a councillor where a licence sits without opening three inboxes.",
+      "by": "Licensing manager, City of Riverside"
+    },
+    "stack": [
+      "Next.js",
+      "Laravel",
+      "MySQL",
+      "AWS"
+    ],
+    "seoKeywords": [
+      "public sector licensing portal",
+      "business licence renewal",
+      "City of Riverside",
+      "government case study"
+    ],
+    "status": "review",
+    "updatedAt": "2026-09-15T14:20:00.000Z"
+  },
+  {
+    "id": "cs-broker-appointments",
+    "title": "Broker appointments without the spreadsheet chase",
+    "slug": "broker-appointment-tracking",
+    "client": "Meridian Life",
+    "industry": "Insurance",
+    "challenge": "New broker appointments were tracked in a shared workbook. Compliance could not see which packs were waiting on the producer and which were waiting on Meridian.",
+    "solution": "A structured appointment board in the existing portal: required documents, owner, and a clear blocked-vs-in-review split. Auth0 keeps producer and internal roles apart.",
+    "results": [
+      {
+        "label": "Time to appointed",
+        "value": "−35%"
+      },
+      {
+        "label": "Missing document loops",
+        "value": "−50%"
+      }
+    ],
+    "quote": {
+      "text": "Producers upload once. We stopped reconstructing the pack from email.",
+      "by": "Compliance lead, Meridian Life"
+    },
+    "stack": [
+      "Laravel",
+      "MySQL",
+      "Auth0",
+      "AWS"
+    ],
+    "seoKeywords": [
+      "broker appointment tracking",
+      "insurance producer onboarding",
+      "Meridian Life",
+      "compliance document workflow"
+    ],
+    "status": "review",
+    "updatedAt": "2026-09-16T08:10:00.000Z"
+  }
+]

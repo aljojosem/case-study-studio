@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { CaseStudyImage } from "@/components/case-study-image";
+import { resultHeadline } from "@/lib/metrics";
 import type { CaseStudy } from "@/lib/types";
 
 export function CaseStudyCard({ study }: { study: CaseStudy }) {
@@ -26,7 +27,9 @@ export function CaseStudyCard({ study }: { study: CaseStudy }) {
         <p className="mt-2 text-sm text-ink/60">{study.client}</p>
         {headline ? (
           <p className="mt-4 text-sm text-ink/80">
-            <span className="font-semibold text-ink">{headline.value}</span>{" "}
+            <span className="font-semibold text-ink">
+              {resultHeadline(headline)}
+            </span>{" "}
             {headline.label}
           </p>
         ) : null}

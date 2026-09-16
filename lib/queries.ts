@@ -17,9 +17,13 @@ export const getPublishedCaseStudies = unstable_cache(
         ...item,
         seoKeywords: item.seoKeywords ?? [],
         imageUrl: item.imageUrl,
+        summary: item.summary,
+        template: item.template,
+        problemTitle: item.problemTitle,
+        problemPoints: item.problemPoints ?? [],
       }));
   },
-  ["published-case-studies"],
+  ["published-case-studies-v3"],
   { tags: [CASE_STUDIES_TAG], revalidate: PUBLIC_REVALIDATE_SECONDS },
 );
 
@@ -31,9 +35,13 @@ export const getPublishedCaseStudy = unstable_cache(
       ...item,
       seoKeywords: item.seoKeywords ?? [],
       imageUrl: item.imageUrl,
+      summary: item.summary,
+      template: item.template,
+      problemTitle: item.problemTitle,
+      problemPoints: item.problemPoints ?? [],
     };
   },
-  ["published-case-study"],
+  ["published-case-study-v3"],
   { tags: [CASE_STUDIES_TAG], revalidate: PUBLIC_REVALIDATE_SECONDS },
 );
 

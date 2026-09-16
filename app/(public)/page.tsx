@@ -16,7 +16,8 @@ export const metadata: Metadata = {
 
 export default function HomePage() {
   return (
-    <div className="max-w-2xl">
+    <div className="mx-auto w-full max-w-5xl px-5 py-10 md:py-14">
+      <div className="max-w-2xl">
       <JsonLd
         data={{
           "@context": "https://schema.org",
@@ -35,9 +36,10 @@ export default function HomePage() {
         Finished work, written once, ready for the site.
       </h1>
       <p className="mt-5 text-lg leading-8 text-ink/70">
-        Delivery fills a fixed form. Marketing publishes. The public case study
-        page is what a 2Base website would show — not another Slack thread or
-        deck.
+        Drop the finished project as one block of source text. The studio
+        pulls problem, solution, and numbers into a case-study view. Later
+        that dump will come from the knowledge base — still without
+        categorized inputs.
       </p>
       <div className="mt-8 flex flex-col gap-3 sm:flex-row">
         <Link href="/case-studies" className="btn-primary">
@@ -50,6 +52,7 @@ export default function HomePage() {
       <CacheNote mode="ssg">
         This page is built at build time. Nothing here changes per request.
       </CacheNote>
+      </div>
     </div>
   );
 }

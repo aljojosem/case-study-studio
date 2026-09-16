@@ -4,6 +4,12 @@ export type CaseStudyTemplate = "editorial" | "website" | "impact";
 export type ResultMetric = {
   label: string;
   value: string;
+  before?: string;
+};
+
+export type ProblemPoint = {
+  title: string;
+  detail: string;
 };
 
 export type CaseStudyQuote = {
@@ -17,13 +23,17 @@ export type CaseStudy = {
   slug: string;
   client: string;
   industry: string;
+  summary?: string;
   challenge: string;
+  problemTitle?: string;
+  problemPoints?: ProblemPoint[];
   solution: string;
   results: ResultMetric[];
   quote?: CaseStudyQuote;
   stack: string[];
   seoKeywords: string[];
   imageUrl?: string;
+  sourceNotes?: string;
   template?: CaseStudyTemplate;
   status: CaseStudyStatus;
   publishedAt?: string;

@@ -62,9 +62,12 @@ export function caseStudyKeywords(study: CaseStudy) {
 export function caseStudyDescription(study: CaseStudy) {
   const headline = study.results[0];
   const outcome = headline
-    ? `${headline.value} ${headline.label}. `
+    ? headline.before?.trim()
+      ? `${headline.label}: ${headline.before} → ${headline.value}. `
+      : `${headline.value} ${headline.label}. `
     : "";
-  const text = `${outcome}${study.challenge}`.replace(/\s+/g, " ").trim();
+  const body = study.summary?.trim() || study.challenge;
+  const text = `${outcome}${body}`.replace(/\s+/g, " ").trim();
   return text.length > 160 ? `${text.slice(0, 157)}…` : text;
 }
 

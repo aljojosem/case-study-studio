@@ -25,9 +25,7 @@ export default function PublicLayout({
           </nav>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-5xl flex-1 px-5 py-10 md:py-14">
-        {children}
-      </main>
+      <main className="flex-1">{children}</main>
     </div>
   );
 }

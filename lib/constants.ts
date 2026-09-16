@@ -15,6 +15,12 @@ export const STACK_OPTIONS = [
   "Auth0",
 ] as const;
 
+export const TEMPLATE_OPTIONS = [
+  { id: "website", label: "Website · numbers first" },
+  { id: "editorial", label: "Editorial" },
+  { id: "impact", label: "Impact" },
+] as const;
+
 export const DUMMY_IMAGES = [
   { src: "/images/nlg-enquiry.jpg", label: "Insurance operations" },
   { src: "/images/claims-portal.jpg", label: "Healthcare corridor" },

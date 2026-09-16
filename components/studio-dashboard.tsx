@@ -58,7 +58,7 @@ export function StudioDashboard({ studies }: { studies: CaseStudy[] }) {
           No case studies match that filter.
         </p>
       ) : (
-        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3">
+        <ul className="grid gap-4 sm:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-4">
           {visible.map((study) => (
             <li key={study.id}>
               <Link
@@ -86,6 +86,16 @@ export function StudioDashboard({ studies }: { studies: CaseStudy[] }) {
                     {study.title}
                   </h2>
                   <p className="text-sm text-ink/65">{study.client}</p>
+                  {study.results[0] ? (
+                    <p className="text-sm font-medium text-studio">
+                      {study.results[0].before
+                        ? `${study.results[0].before} → ${study.results[0].value}`
+                        : study.results[0].value}{" "}
+                      <span className="font-normal text-ink/55">
+                        {study.results[0].label}
+                      </span>
+                    </p>
+                  ) : null}
                   <p className="mt-auto text-xs text-ink/45">
                     Updated{" "}
                     {new Date(study.updatedAt).toLocaleDateString("en-GB", {

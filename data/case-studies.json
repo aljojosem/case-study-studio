@@ -1,5 +1,99 @@
 [
   {
+    "id": "cs-nlc-chims",
+    "title": "Modernizing Insurance Workflows with a Scalable SaaS Solution",
+    "slug": "insurance-producer-contract-automation",
+    "client": "National Life Group",
+    "industry": "Insurance",
+    "summary": "The organization faced growing inefficiencies in managing producer contracts, largely due to manual email workflows and PDF-based documentation. Each onboarding or contract update involved handling more than 20 multi-page documents per producer, requiring over 20 full-time staff to manage the volume. This led to constant delays, operational strain, and a process that could no longer keep pace with business growth. Modernizing Insurance Workflows with a Scalable SaaS Solution National Life Group is the client",
+    "challenge": "The organization faced growing inefficiencies in managing producer contracts, largely due to manual email workflows and PDF-based documentation. Each onboarding or contract update involved handling more than 20 multi-page documents per producer, requiring over 20 full-time staff to manage the volume. This led to constant delays, operational strain, and a process that could no longer keep pace with business growth.",
+    "problemTitle": "The Hidden Cost of Outdated Insurance Workflows",
+    "problemPoints": [
+      {
+        "title": "Faster contract approvals with automated workflows: could not keep up",
+        "detail": "The baseline sat at 5 days. The work only moved once it reached 30 minutes."
+      },
+      {
+        "title": "Result could not keep up",
+        "detail": "The baseline sat at Reduced manual work (18 staff. The work only moved once it reached 2): 18 staff → 2."
+      },
+      {
+        "title": "Onboarding time: could not keep up",
+        "detail": "The baseline sat at 1 week. The work only moved once it reached 2 hours."
+      },
+      {
+        "title": "Daily processed contracts: could not keep up",
+        "detail": "The baseline sat at 50. The work only moved once it reached 1,000+."
+      },
+      {
+        "title": "Manual Processes for all User Types",
+        "detail": "Staff, agents, and administrators relied on time-consuming manual actions at every stage."
+      },
+      {
+        "title": "Inefficient and Disconnected Workflows",
+        "detail": "The lack of centralized coordination caused delays, redundancies, and frequent errors."
+      }
+    ],
+    "solution": "2Base shipped CHIMS as a SaaS contracting workspace: automated multi-page contracts, carrier-specific rules, digital delivery, and checkpoints through NIPR, OCR, and identity/bank verification.",
+    "results": [
+      {
+        "label": "Faster contract approvals with automated workflows:",
+        "before": "5 days",
+        "value": "30 minutes"
+      },
+      {
+        "label": "Result",
+        "before": "Reduced manual work (18 staff",
+        "value": "2): 18 staff → 2"
+      },
+      {
+        "label": "API integration for accurate, structured data",
+        "before": "",
+        "value": "carriers: Error-free"
+      },
+      {
+        "label": "Onboarding time:",
+        "before": "1 week",
+        "value": "2 hours"
+      },
+      {
+        "label": "Daily processed contracts:",
+        "before": "50",
+        "value": "1,000+"
+      },
+      {
+        "label": "Processing throughput:",
+        "before": "20 staff",
+        "value": "3 staff"
+      }
+    ],
+    "stack": [
+      "Laravel",
+      "MySQL",
+      "AWS",
+      "Auth0",
+      "NIPR",
+      "OCR"
+    ],
+    "seoKeywords": [
+      "Modernizing Insurance Workflows with a Scalable SaaS Solution",
+      "National Life Group",
+      "Insurance",
+      "Laravel",
+      "MySQL",
+      "AWS",
+      "Auth0",
+      "NIPR",
+      "OCR"
+    ],
+    "imageUrl": "/images/broker-appointments.jpg",
+    "sourceNotes": "The organization faced growing inefficiencies in managing producer contracts, largely due to manual email workflows and PDF-based documentation. Each onboarding or contract update involved handling more than 20 multi-page documents per producer, requiring over 20 full-time staff to manage the volume. This led to constant delays, operational strain, and a process that could no longer keep pace with business growth.\r\nModernizing Insurance Workflows with a Scalable SaaS Solution\r\nNational Life Group is the client\r\nIndustry - Insurance\r\nA cloud-based CHIMS platform that simplifies insurance contract management and producer onboarding across 20+ carriers.\r\nThe Hidden Cost of Outdated Insurance Workflows\r\n- Manual Processes for all User Types: Staff, agents, and administrators relied on time-consuming manual actions at every stage.\r\n- Inefficient and Disconnected Workflows: The lack of centralized coordination caused delays, redundancies, and frequent errors.\r\n- High Cost Per Transaction: Manual operations required more staff time, increasing the cost of processing each contract.\r\n- No Integration with Carrier-Specific Rules: Contract variations by carrier had to be managed manually, increasing the risk of non-compliance.\r\n- Contracts Delivered via Static Email: Finalized contracts were shared through email attachments with no real-time tracking or audit trail.\r\n- Limited Visibility and Reporting: Lack of real-time dashboards made it hard to track contract status, agent progress, or spot compliance issues early.\r\n2Base shipped CHIMS as a SaaS contracting workspace: automated multi-page contracts, carrier-specific rules, digital delivery, and checkpoints through NIPR, OCR, and identity/bank verification.\r\nFaster contract approvals with automated workflows: 5 days → 30 minutes\r\nReduced manual work (18 staff to 2): 18 staff → 2\r\nAPI integration for accurate, structured data to carriers: Error-free\r\nOnboarding time: 1 week → 2 hours\r\nDaily processed contracts: 50 → 1,000+\r\nProcessing throughput: 20 staff → 3 staff\r\nMulti-carrier updates: 15 days → 1 day\r\nIntegrations: Laravel, MySQL, Auth0, AWS, NIPR, OCR",
+    "template": "website",
+    "status": "published",
+    "publishedAt": "2026-09-16T09:00:00.000Z",
+    "updatedAt": "2026-09-16T12:03:22.171Z"
+  },
+  {
     "id": "cs-nlg-enquiry",
     "title": "Faster life-insurance enquiry handoff",
     "slug": "nlg-enquiry-handoff",
@@ -41,7 +135,8 @@
     "status": "published",
     "publishedAt": "2026-06-12T09:00:00.000Z",
     "updatedAt": "2026-06-12T09:00:00.000Z",
-    "imageUrl": "/images/nlg-enquiry.jpg"
+    "imageUrl": "/images/nlg-enquiry.jpg",
+    "problemPoints": []
   },
   {
     "id": "cs-claims-portal",
@@ -79,7 +174,8 @@
     "status": "published",
     "publishedAt": "2026-03-04T09:00:00.000Z",
     "updatedAt": "2026-03-04T09:00:00.000Z",
-    "imageUrl": "/images/claims-portal.jpg"
+    "imageUrl": "/images/claims-portal.jpg",
+    "problemPoints": []
   },
   {
     "id": "cs-fintech-onboarding",
@@ -113,7 +209,8 @@
     ],
     "status": "review",
     "updatedAt": "2026-09-16T05:26:39.322Z",
-    "imageUrl": "/images/fintech-kyc.jpg"
+    "imageUrl": "/images/fintech-kyc.jpg",
+    "problemPoints": []
   },
   {
     "id": "cs-retail-stock",
@@ -147,7 +244,8 @@
     "status": "published",
     "publishedAt": "2026-09-16T05:45:19.785Z",
     "updatedAt": "2026-09-16T05:45:19.785Z",
-    "imageUrl": "/images/retail-stock.jpg"
+    "imageUrl": "/images/retail-stock.jpg",
+    "problemPoints": []
   },
   {
     "id": "cs-public-licensing",
@@ -189,7 +287,8 @@
     ],
     "status": "review",
     "updatedAt": "2026-09-15T14:20:00.000Z",
-    "imageUrl": "/images/public-licensing.jpg"
+    "imageUrl": "/images/public-licensing.jpg",
+    "problemPoints": []
   },
   {
     "id": "cs-broker-appointments",
@@ -227,6 +326,7 @@
     ],
     "status": "review",
     "updatedAt": "2026-09-16T08:10:00.000Z",
-    "imageUrl": "/images/broker-appointments.jpg"
+    "imageUrl": "/images/broker-appointments.jpg",
+    "problemPoints": []
   }
 ]

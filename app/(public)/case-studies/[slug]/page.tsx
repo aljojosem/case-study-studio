@@ -42,9 +42,11 @@ export default async function CaseStudyPage({
   }
 
   return (
-    <div>
+    <div className="mx-auto w-full max-w-5xl px-5 py-10 md:py-14">
       <JsonLd data={caseStudyJsonLd(study)} />
-      <CaseStudyArticle study={study} />
+      <div className="rounded-2xl bg-white px-5 py-8 ring-1 ring-ink/10 md:px-8 md:py-10">
+        <CaseStudyArticle study={study} />
+      </div>
       <CacheNote mode="isr">
         Built for known slugs at build time via generateStaticParams. Refresh
         window is 60s, or immediately after publish.

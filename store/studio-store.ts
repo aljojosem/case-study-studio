@@ -10,16 +10,24 @@ export const emptyDraft = (): CaseStudyDraft => ({
   slug: "",
   client: "",
   industry: "Insurance",
+  summary: "",
   challenge: "",
+  problemTitle: "",
+  problemPoints: [
+    { title: "", detail: "" },
+    { title: "", detail: "" },
+  ],
   solution: "",
   results: [
-    { label: "", value: "" },
-    { label: "", value: "" },
+    { label: "", before: "", value: "" },
+    { label: "", before: "", value: "" },
   ],
   quote: { text: "", by: "" },
   stack: [],
   seoKeywords: [],
   imageUrl: "",
+  sourceNotes: "",
+  template: "website",
   status: "draft",
 });
 

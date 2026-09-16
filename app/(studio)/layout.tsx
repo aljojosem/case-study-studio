@@ -13,7 +13,7 @@ export default function StudioLayout({
   return (
     <div className="flex min-h-full flex-col">
       <header className="bg-studio text-white">
-        <div className="mx-auto flex w-full max-w-6xl items-center justify-between px-5 py-4">
+        <div className="mx-auto flex w-full max-w-[110rem] items-center justify-between px-5 py-4 sm:px-8 xl:px-12">
           <div>
             <p className="text-xs uppercase tracking-[0.16em] text-white/60">
               2Base studio
@@ -35,7 +35,7 @@ export default function StudioLayout({
           </nav>
         </div>
       </header>
-      <main className="mx-auto w-full max-w-6xl flex-1 px-5 py-8 md:py-10">
+      <main className="mx-auto w-full max-w-[110rem] flex-1 px-5 py-8 sm:px-8 md:py-10 xl:px-12">
         {children}
       </main>
     </div>

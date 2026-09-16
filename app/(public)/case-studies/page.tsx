@@ -33,7 +33,7 @@ export default async function CaseStudiesPage() {
   const studies = await getPublishedCaseStudies();
 
   return (
-    <div>
+    <div className="mx-auto w-full max-w-5xl px-5 py-10 md:py-14">
       <JsonLd
         data={{
           "@context": "https://schema.org",

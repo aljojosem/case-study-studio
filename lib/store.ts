@@ -13,6 +13,16 @@ function normalize(item: CaseStudy): CaseStudy {
   return {
     ...item,
     seoKeywords: Array.isArray(item.seoKeywords) ? item.seoKeywords : [],
+    summary: item.summary,
+    template: item.template,
+    problemTitle: item.problemTitle,
+    problemPoints: Array.isArray(item.problemPoints) ? item.problemPoints : [],
+    sourceNotes: item.sourceNotes,
+    results: (item.results ?? []).map((row) => ({
+      label: row.label ?? "",
+      value: row.value ?? "",
+      before: row.before,
+    })),
   };
 }
 
@@ -46,6 +56,11 @@ export async function upsertCaseStudy(input: CaseStudyDraft): Promise<CaseStudy>
     ...input,
     id,
     seoKeywords: input.seoKeywords ?? [],
+    problemTitle: input.problemTitle || existing?.problemTitle,
+    problemPoints:
+      input.problemPoints && input.problemPoints.length > 0
+        ? input.problemPoints
+        : existing?.problemPoints ?? [],
     publishedAt:
       input.status === "published"
         ? input.publishedAt || existing?.publishedAt || now

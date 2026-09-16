@@ -7,15 +7,40 @@ import { parseKeywordList } from "./seo";
 import { slugify } from "./slug";
 import { upsertCaseStudy } from "./store";
 import { saveUploadedImage } from "./upload";
-import type { CaseStudyDraft, CaseStudyStatus, ResultMetric } from "./types";
+import { applyCategorizedNotes } from "./categorize-notes";
+import { buildCaseStudyView } from "./generate-case-study";
+import { problemPointHasValue, resultHasValue } from "./metrics";
+import type {
+  CaseStudyDraft,
+  CaseStudyStatus,
+  CaseStudyTemplate,
+  ProblemPoint,
+  ResultMetric,
+} from "./types";
 
 function parseResults(raw: string): ResultMetric[] {
   try {
     const parsed = JSON.parse(raw) as ResultMetric[];
-    return parsed.filter((row) => row.label.trim() || row.value.trim());
+    return parsed.filter(resultHasValue);
   } catch {
     return [];
   }
+}
+
+function parseProblemPoints(raw: string): ProblemPoint[] {
+  try {
+    const parsed = JSON.parse(raw) as ProblemPoint[];
+    return parsed.filter(problemPointHasValue);
+  } catch {
+    return [];
+  }
+}
+
+function parseTemplate(raw: string): CaseStudyTemplate {
+  if (raw === "website" || raw === "impact" || raw === "editorial") {
+    return raw;
+  }
+  return "editorial";
 }
 
 function parseStack(raw: string) {
@@ -38,14 +63,35 @@ function draftFromForm(formData: FormData): CaseStudyDraft {
     slug: slugify(slugSource) || slugify(title) || `case-${Date.now()}`,
     client: String(formData.get("client") ?? "").trim(),
     industry: String(formData.get("industry") ?? "Insurance"),
+    summary: String(formData.get("summary") ?? "").trim() || undefined,
     challenge: String(formData.get("challenge") ?? "").trim(),
+    problemTitle: String(formData.get("problemTitle") ?? "").trim() || undefined,
+    problemPoints: parseProblemPoints(String(formData.get("problemPoints") ?? "[]")),
     solution: String(formData.get("solution") ?? "").trim(),
     results: parseResults(String(formData.get("results") ?? "[]")),
     quote: quoteText ? { text: quoteText, by: quoteBy } : undefined,
     stack: parseStack(String(formData.get("stack") ?? "")),
     seoKeywords: parseKeywordList(String(formData.get("seoKeywords") ?? "")),
     imageUrl: undefined,
+    sourceNotes: String(formData.get("sourceNotes") ?? "").trim() || undefined,
+    template: parseTemplate(String(formData.get("template") ?? "editorial")),
     status,
+  };
+}
+
+function withGeneratedView(draft: CaseStudyDraft): CaseStudyDraft {
+  const view = buildCaseStudyView({
+    ...draft,
+    updatedAt: new Date().toISOString(),
+  });
+  return {
+    ...draft,
+    summary: view.summary,
+    problemTitle: view.problemTitle,
+    challenge: view.challenge,
+    problemPoints: view.problemPoints,
+    solution: view.solution,
+    template: view.template,
   };
 }
 
@@ -66,7 +112,12 @@ function refreshPublicCache(status: CaseStudyStatus) {
 }
 
 export async function saveCaseStudy(formData: FormData) {
-  const draft = await withCoverImage(draftFromForm(formData), formData);
+  let draft = await withCoverImage(draftFromForm(formData), formData);
+  if (draft.sourceNotes) {
+    draft = applyCategorizedNotes(draft, draft.sourceNotes);
+  } else {
+    draft = withGeneratedView(draft);
+  }
   if (!draft.title || !draft.client) {
     throw new Error("Title and client are required.");
   }
@@ -77,7 +128,12 @@ export async function saveCaseStudy(formData: FormData) {
 }
 
 export async function publishCaseStudy(formData: FormData) {
-  const draft = await withCoverImage(draftFromForm(formData), formData);
+  let draft = await withCoverImage(draftFromForm(formData), formData);
+  if (draft.sourceNotes) {
+    draft = applyCategorizedNotes(draft, draft.sourceNotes);
+  } else {
+    draft = withGeneratedView(draft);
+  }
   draft.status = "published";
   if (!draft.title || !draft.client) {
     throw new Error("Title and client are required before publish.");

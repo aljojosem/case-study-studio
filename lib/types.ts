@@ -1,4 +1,5 @@
 export type CaseStudyStatus = "draft" | "review" | "published";
+export type CaseStudyTemplate = "editorial" | "website" | "impact";
 
 export type ResultMetric = {
   label: string;
@@ -23,6 +24,7 @@ export type CaseStudy = {
   stack: string[];
   seoKeywords: string[];
   imageUrl?: string;
+  template?: CaseStudyTemplate;
   status: CaseStudyStatus;
   publishedAt?: string;
   updatedAt: string;

@@ -13,7 +13,11 @@ export const getPublishedCaseStudies = unstable_cache(
     const items = await readCaseStudies();
     return items
       .filter((item) => item.status === "published")
-      .map((item) => ({ ...item, seoKeywords: item.seoKeywords ?? [] }));
+      .map((item) => ({
+        ...item,
+        seoKeywords: item.seoKeywords ?? [],
+        imageUrl: item.imageUrl,
+      }));
   },
   ["published-case-studies"],
   { tags: [CASE_STUDIES_TAG], revalidate: PUBLIC_REVALIDATE_SECONDS },
@@ -23,7 +27,11 @@ export const getPublishedCaseStudy = unstable_cache(
   async (slug: string) => {
     const item = await getCaseStudyBySlug(slug);
     if (!item || item.status !== "published") return null;
-    return { ...item, seoKeywords: item.seoKeywords ?? [] };
+    return {
+      ...item,
+      seoKeywords: item.seoKeywords ?? [],
+      imageUrl: item.imageUrl,
+    };
   },
   ["published-case-study"],
   { tags: [CASE_STUDIES_TAG], revalidate: PUBLIC_REVALIDATE_SECONDS },

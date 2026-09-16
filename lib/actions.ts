@@ -6,6 +6,7 @@ import { CASE_STUDIES_TAG } from "./constants";
 import { parseKeywordList } from "./seo";
 import { slugify } from "./slug";
 import { upsertCaseStudy } from "./store";
+import { saveUploadedImage } from "./upload";
 import type { CaseStudyDraft, CaseStudyStatus, ResultMetric } from "./types";
 
 function parseResults(raw: string): ResultMetric[] {
@@ -43,9 +44,19 @@ function draftFromForm(formData: FormData): CaseStudyDraft {
     quote: quoteText ? { text: quoteText, by: quoteBy } : undefined,
     stack: parseStack(String(formData.get("stack") ?? "")),
     seoKeywords: parseKeywordList(String(formData.get("seoKeywords") ?? "")),
-    imageUrl: String(formData.get("imageUrl") ?? "").trim() || undefined,
+    imageUrl: undefined,
     status,
   };
+}
+
+async function withCoverImage(draft: CaseStudyDraft, formData: FormData) {
+  const uploaded = formData.get("image");
+  if (uploaded instanceof File && uploaded.size > 0) {
+    draft.imageUrl = await saveUploadedImage(uploaded);
+    return draft;
+  }
+  draft.imageUrl = String(formData.get("imageUrl") ?? "").trim() || undefined;
+  return draft;
 }
 
 function refreshPublicCache(status: CaseStudyStatus) {
@@ -55,7 +66,7 @@ function refreshPublicCache(status: CaseStudyStatus) {
 }
 
 export async function saveCaseStudy(formData: FormData) {
-  const draft = draftFromForm(formData);
+  const draft = await withCoverImage(draftFromForm(formData), formData);
   if (!draft.title || !draft.client) {
     throw new Error("Title and client are required.");
   }
@@ -66,7 +77,7 @@ export async function saveCaseStudy(formData: FormData) {
 }
 
 export async function publishCaseStudy(formData: FormData) {
-  const draft = draftFromForm(formData);
+  const draft = await withCoverImage(draftFromForm(formData), formData);
   draft.status = "published";
   if (!draft.title || !draft.client) {
     throw new Error("Title and client are required before publish.");

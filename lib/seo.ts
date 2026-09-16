@@ -87,11 +87,15 @@ export function caseStudyMetadata(study: CaseStudy): Metadata {
       publishedTime: study.publishedAt,
       modifiedTime: study.updatedAt,
       tags: keywords,
+      images: study.imageUrl
+        ? [{ url: absoluteUrl(study.imageUrl), alt: study.title }]
+        : undefined,
     },
     twitter: {
       card: "summary_large_image",
       title: study.title,
       description,
+      images: study.imageUrl ? [absoluteUrl(study.imageUrl)] : undefined,
     },
   };
 }
@@ -112,5 +116,6 @@ export function caseStudyJsonLd(study: CaseStudy) {
     keywords: caseStudyKeywords(study).join(", "),
     articleSection: study.industry,
     url: absoluteUrl(`/case-studies/${study.slug}`),
+    image: study.imageUrl ? absoluteUrl(study.imageUrl) : undefined,
   };
 }

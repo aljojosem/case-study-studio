@@ -40,7 +40,8 @@
     ],
     "status": "published",
     "publishedAt": "2026-06-12T09:00:00.000Z",
-    "updatedAt": "2026-06-12T09:00:00.000Z"
+    "updatedAt": "2026-06-12T09:00:00.000Z",
+    "imageUrl": "/images/nlg-enquiry.jpg"
   },
   {
     "id": "cs-claims-portal",
@@ -77,7 +78,8 @@
     ],
     "status": "published",
     "publishedAt": "2026-03-04T09:00:00.000Z",
-    "updatedAt": "2026-03-04T09:00:00.000Z"
+    "updatedAt": "2026-03-04T09:00:00.000Z",
+    "imageUrl": "/images/claims-portal.jpg"
   },
   {
     "id": "cs-fintech-onboarding",
@@ -110,7 +112,8 @@
       "Northshore Payments"
     ],
     "status": "review",
-    "updatedAt": "2026-09-16T05:26:39.322Z"
+    "updatedAt": "2026-09-16T05:26:39.322Z",
+    "imageUrl": "/images/fintech-kyc.jpg"
   },
   {
     "id": "cs-retail-stock",
@@ -143,7 +146,8 @@
     ],
     "status": "published",
     "publishedAt": "2026-09-16T05:45:19.785Z",
-    "updatedAt": "2026-09-16T05:45:19.785Z"
+    "updatedAt": "2026-09-16T05:45:19.785Z",
+    "imageUrl": "/images/retail-stock.jpg"
   },
   {
     "id": "cs-public-licensing",
@@ -184,7 +188,8 @@
       "government case study"
     ],
     "status": "review",
-    "updatedAt": "2026-09-15T14:20:00.000Z"
+    "updatedAt": "2026-09-15T14:20:00.000Z",
+    "imageUrl": "/images/public-licensing.jpg"
   },
   {
     "id": "cs-broker-appointments",
@@ -221,6 +226,7 @@
       "compliance document workflow"
     ],
     "status": "review",
-    "updatedAt": "2026-09-16T08:10:00.000Z"
+    "updatedAt": "2026-09-16T08:10:00.000Z",
+    "imageUrl": "/images/broker-appointments.jpg"
   }
 ]

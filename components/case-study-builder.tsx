@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import { CaseStudyArticle } from "@/components/case-study-article";
-import { INDUSTRIES, STACK_OPTIONS } from "@/lib/constants";
+import { INDUSTRIES, DUMMY_IMAGES, STACK_OPTIONS } from "@/lib/constants";
 import { parseKeywordList } from "@/lib/seo";
 import { slugify } from "@/lib/slug";
 import { publishCaseStudy, saveCaseStudy } from "@/lib/actions";
@@ -31,6 +31,7 @@ export function CaseStudyBuilder({
   const setDraft = useStudioStore((state) => state.setDraft);
   const patchDraft = useStudioStore((state) => state.patchDraft);
   const [keywordInput, setKeywordInput] = useState("");
+  const [uploadPreview, setUploadPreview] = useState("");
 
   useEffect(() => {
     if (initial) {
@@ -47,6 +48,7 @@ export function CaseStudyBuilder({
               ],
       });
       setKeywordInput((initial.seoKeywords ?? []).join(", "));
+      setUploadPreview("");
       return;
     }
 
@@ -54,6 +56,7 @@ export function CaseStudyBuilder({
     if (current.id) {
       setDraft(emptyDraft());
       setKeywordInput("");
+      setUploadPreview("");
       return;
     }
 
@@ -85,7 +88,10 @@ export function CaseStudyBuilder({
 
   return (
     <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-      <form className="space-y-5 rounded-2xl bg-white p-5 ring-1 ring-ink/10 md:p-6">
+      <form
+        className="space-y-5 rounded-2xl bg-white p-5 ring-1 ring-ink/10 md:p-6"
+        encType="multipart/form-data"
+      >
         {hiddenFields}
         <div className="grid gap-4 sm:grid-cols-2">
           <Field label="Title">
@@ -132,6 +138,57 @@ export function CaseStudyBuilder({
               ))}
             </select>
           </Field>
+          <div className="sm:col-span-2">
+            <p className="mb-1 text-xs font-medium uppercase tracking-wide text-ink/50">
+              Cover image
+            </p>
+            {(uploadPreview || draft.imageUrl) ? (
+              <img
+                src={uploadPreview || draft.imageUrl}
+                alt=""
+                className="mb-3 h-36 w-full rounded-xl object-cover ring-1 ring-ink/10"
+              />
+            ) : null}
+            <input type="hidden" name="imageUrl" value={draft.imageUrl ?? ""} />
+            <select
+              value={
+                DUMMY_IMAGES.some((image) => image.src === (draft.imageUrl ?? ""))
+                  ? draft.imageUrl
+                  : ""
+              }
+              onChange={(event) => {
+                setUploadPreview("");
+                patchDraft({ imageUrl: event.target.value });
+              }}
+              className="input"
+            >
+              <option value="">
+                {draft.imageUrl &&
+                !DUMMY_IMAGES.some((image) => image.src === draft.imageUrl)
+                  ? "Using uploaded image"
+                  : "Choose a dummy image"}
+              </option>
+              {DUMMY_IMAGES.map((image) => (
+                <option key={image.src} value={image.src}>
+                  {image.label}
+                </option>
+              ))}
+            </select>
+            <input
+              type="file"
+              name="image"
+              accept="image/jpeg,image/png,image/webp,image/gif"
+              onChange={(event) => {
+                const file = event.target.files?.[0];
+                setUploadPreview(file ? URL.createObjectURL(file) : "");
+              }}
+              className="mt-3 block w-full text-sm text-ink/70 file:mr-3 file:rounded-full file:border-0 file:bg-studio file:px-3 file:py-1.5 file:text-sm file:font-medium file:text-white"
+            />
+            <p className="mt-1 text-xs text-ink/50">
+              Pick a dummy cover or upload a JPG, PNG, WebP, or GIF (max 4 MB).
+              An upload is saved when you click Save or Publish.
+            </p>
+          </div>
         </div>
 
         <Field label="Challenge">

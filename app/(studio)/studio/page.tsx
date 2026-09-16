@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { CacheNote } from "@/components/cache-note";
 import { StudioDashboard } from "@/components/studio-dashboard";
 import { getStudioCaseStudies } from "@/lib/queries";
@@ -18,10 +19,15 @@ export default async function StudioPage() {
         <div>
           <h1 className="font-serif text-4xl text-ink">Dashboard</h1>
           <p className="mt-2 text-ink/65">
-            {studies.length} records · {open} still in draft or review. Rendered
-            on the server for every request.
+            {studies.length} case studies · {open} still in draft or review.
           </p>
         </div>
+        <Link
+          href="/studio/new"
+          className="btn-primary self-start sm:self-auto"
+        >
+          New draft
+        </Link>
       </div>
       <StudioDashboard studies={studies} />
       <CacheNote mode="ssr">

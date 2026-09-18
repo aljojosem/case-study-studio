@@ -185,3 +185,11 @@ Refresh [http://localhost:3000](http://localhost:3000) to see it.
 **Model:** `grok-4.6`
 
 please push the code
+
+## Result — 2026-09-18 05:21 UTC
+
+The branch is pushed.
+
+`feature/aljo/home-page` is on origin with the public home page, leftover `/en/...` redirects, and the updated listing band.
+
+https://github.com/aljojosem/case-study-studio/tree/feature/aljo/home-page

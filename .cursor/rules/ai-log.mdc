@@ -1,0 +1,12 @@
+---
+description: Per-branch AI prompt logs must be committed with every pull request
+alwaysApply: true
+---
+
+# AI logs
+
+Cursor hooks write prompts and results to `ai-logs/<branch>.md` (slashes in the branch name become `--`).
+
+- Use a personal branch name such as `yourname/short-task` so the log identifies who typed the prompts.
+- Do not delete or rewrite other people's log files.
+- Include your branch log in the pull request. CI fails if it is missing.

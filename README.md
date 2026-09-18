@@ -32,3 +32,7 @@ Industry/stack filters and the unsaved draft persist across public ↔ studio na
 `data/case-studies.json` — published, in-review, and draft records including the NLC/CHIMS producer-contract case study. Saves write back to this file (local demo only).
 
 The left side is one dump of source text (today paste, later the knowledge base). There are no categorized problem/solution fields. The studio pulls title, problem, solution, numbers, and template on its own and shows the case study on the right.
+
+## AI logs
+
+Each branch gets `ai-logs/<branch>.md`. Cursor hooks append prompts and results automatically. Name branches like `yourname/short-task`, then commit that log file with your pull request. See `ai-logs/README.md`.

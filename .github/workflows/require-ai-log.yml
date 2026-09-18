@@ -1,0 +1,35 @@
+name: Require AI log
+
+on:
+  pull_request:
+    branches: [main]
+
+jobs:
+  ai-log:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Require branch AI log file
+        env:
+          BRANCH: ${{ github.head_ref }}
+        run: |
+          set -euo pipefail
+          slug=$(python3 - <<'PY'
+          import os, re
+          branch = os.environ["BRANCH"].strip()
+          slug = re.sub(r"[^A-Za-z0-9._-]+", "--", branch).strip("-.") or "unknown-branch"
+          print(slug[:120])
+          PY
+          )
+          file="ai-logs/${slug}.md"
+          if [ ! -f "$file" ]; then
+            echo "Missing $file"
+            echo "Start a Cursor chat on this branch so the log is created, then commit and push it with the PR."
+            exit 1
+          fi
+          if [ ! -s "$file" ]; then
+            echo "$file is empty. Use Cursor on this branch, then commit the log."
+            exit 1
+          fi
+          echo "Found $file"

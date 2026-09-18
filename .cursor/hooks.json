@@ -1,0 +1,20 @@
+{
+  "version": 1,
+  "hooks": {
+    "sessionStart": [
+      {
+        "command": ".cursor/hooks/ai-log.py"
+      }
+    ],
+    "beforeSubmitPrompt": [
+      {
+        "command": ".cursor/hooks/ai-log.py"
+      }
+    ],
+    "afterAgentResponse": [
+      {
+        "command": ".cursor/hooks/ai-log.py"
+      }
+    ]
+  }
+}

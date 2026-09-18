@@ -193,3 +193,9 @@ The branch is pushed.
 `feature/aljo/home-page` is on origin with the public home page, leftover `/en/...` redirects, and the updated listing band.
 
 https://github.com/aljojosem/case-study-studio/tree/feature/aljo/home-page
+
+## Prompt — 2026-09-18 05:23 UTC
+
+**Model:** `grok-4.6`
+
+please create the pull request to main branch

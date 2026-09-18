@@ -1,7 +1,11 @@
 import type { Metadata } from "next";
-import { HomeLanding } from "@/components/home-landing";
+import { CacheNote } from "@/components/cache-note";
+import { JsonLd } from "@/components/json-ld";
+import { PublicHome } from "@/components/public-home";
 import { getPublishedCaseStudies } from "@/lib/queries";
-import { DEFAULT_KEYWORDS, SITE_NAME } from "@/lib/seo";
+import { DEFAULT_KEYWORDS, SITE_NAME, SITE_URL } from "@/lib/seo";
+
+export const revalidate = 60;
 
 export const metadata: Metadata = {
   title: {
@@ -15,5 +19,38 @@ export const metadata: Metadata = {
 
 export default async function HomePage() {
   const studies = await getPublishedCaseStudies();
-  return <HomeLanding studies={studies} />;
+
+  return (
+    <div>
+      <JsonLd
+        data={{
+          "@context": "https://schema.org",
+          "@graph": [
+            {
+              "@type": "WebSite",
+              name: SITE_NAME,
+              url: SITE_URL,
+              description:
+                "Turn finished 2Base projects into website-ready case studies.",
+              publisher: { "@type": "Organization", name: "2Base" },
+            },
+            {
+              "@type": "Organization",
+              name: "2Base",
+              url: SITE_URL,
+              description:
+                "Digital delivery for insurance, healthcare, fintech, retail, and public sector teams.",
+            },
+          ],
+        }}
+      />
+      <PublicHome studies={studies} />
+      <div className="mx-auto w-full max-w-5xl px-5 pb-10">
+        <CacheNote mode="isr">
+          Featured work is the published list. Publish in Studio calls
+          updateTag(&apos;case-studies&apos;).
+        </CacheNote>
+      </div>
+    </div>
+  );
 }

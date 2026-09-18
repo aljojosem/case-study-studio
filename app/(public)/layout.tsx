@@ -14,12 +14,15 @@ export default function PublicLayout({
       >
         Skip to content
       </a>
-      <header className="border-b border-ink/10 bg-white/80 backdrop-blur">
+      <header className="sticky top-0 z-10 border-b border-ink/10 bg-white/80 backdrop-blur">
         <div className="mx-auto flex w-full max-w-5xl items-center justify-between px-5 py-4">
           <Link href="/" className="font-serif text-lg text-ink">
             Case Study Studio
           </Link>
-          <nav className="flex items-center gap-4 text-sm">
+          <nav aria-label="Primary" className="flex items-center gap-4 text-sm">
+            <Link href="/#industries" className="hidden text-ink/70 hover:text-ink sm:inline">
+              Industries
+            </Link>
             <Link href="/case-studies" className="text-ink/70 hover:text-ink">
               Work
             </Link>
